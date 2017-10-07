@@ -1,8 +1,12 @@
-
 *.class
+*.jar
 
+.project
 .classpath
-
 *.prefs
-
 bin/
+
+target/
+
+.idea/
+*.iml
