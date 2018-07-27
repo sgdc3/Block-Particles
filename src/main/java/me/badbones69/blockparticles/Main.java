@@ -21,7 +21,7 @@ public class Main extends JavaPlugin {
 
     public static SettingsManager settings = SettingsManager.getInstance();
     public static BlockParticles bp = BlockParticles.getInstance();
-    static HashMap<Player, String> B = new HashMap<Player, String>();
+    static HashMap<Player, String> B = new HashMap<>();
 
     @Override
     public void onDisable() {
@@ -47,19 +47,21 @@ public class Main extends JavaPlugin {
         }
         Methods.kill();
         Methods.startParticles();
+        /*
         if (settings.getConfig().contains("Settings.Metrics")) {
             if (settings.getConfig().getBoolean("Settings.Metrics")) {
                 try {
                     new MCUpdate(this, true);
-                } catch (IOException e) {
+                } catch (IOException ignored) {
                 }
             }
         } else {
             try {
                 new MCUpdate(this, true);
-            } catch (IOException e) {
+            } catch (IOException ignored) {
             }
         }
+        */
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLable, String[] args) {
@@ -73,7 +75,7 @@ public class Main extends JavaPlugin {
             if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("Show")) {
                     int items = Fountains.items.size();
-                    int Blocks = PlayParticles.Blocks.size();
+                    int Blocks = ParticleManager.blocks.size();
                     sender.sendMessage(color(Prefix + "&3There are &6" + items + " &3Items in the List."));
                     sender.sendMessage(color(Prefix + "&3There are &6" + Blocks + " &3Particles/Fountains Running."));
                     return true;

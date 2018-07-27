@@ -2,7 +2,7 @@ package me.badbones69.blockparticles.api;
 
 import me.badbones69.blockparticles.Fountains;
 import me.badbones69.blockparticles.Main;
-import me.badbones69.blockparticles.PlayParticles;
+import me.badbones69.blockparticles.ParticleManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -42,36 +42,36 @@ public class BlockParticles {
      * @return
      */
     public void setParticle(Particles type, Location loc, String name) {
-        if (PlayParticles.Blocks.containsKey(name)) {
-            Bukkit.getServer().getScheduler().cancelTask(PlayParticles.Blocks.get(name));
+        if (ParticleManager.blocks.containsKey(name)) {
+            Bukkit.getServer().getScheduler().cancelTask(ParticleManager.blocks.get(name));
         }
         switch (type) {
             case LOVETORNADO:
-                PlayParticles.playLoveTornado(loc, name);
+                ParticleManager.playLoveTornado(loc, name);
                 break;
             case WITCHTORNADO:
-                PlayParticles.playWitchTornado(loc, name);
+                ParticleManager.playWitchTornado(loc, name);
                 break;
             case LOVEWELL:
-                PlayParticles.playLoveWell(loc, name);
+                ParticleManager.playLoveWell(loc, name);
                 break;
             case BIGLOVEWELL:
-                PlayParticles.playBigLoveWell(loc, name);
+                ParticleManager.playBigLoveWell(loc, name);
                 break;
             case HALO:
-                PlayParticles.playHalo(loc, name);
+                ParticleManager.playHalo(loc, name);
                 break;
             case SANTAHAT:
-                PlayParticles.playSantaHat(loc, name);
+                ParticleManager.playSantaHat(loc, name);
                 break;
             case SOULWELL:
-                PlayParticles.playSoulWell(loc, name);
+                ParticleManager.playSoulWell(loc, name);
                 break;
             case BIGSOULWELL:
-                PlayParticles.playBigSoulWell(loc, name);
+                ParticleManager.playBigSoulWell(loc, name);
                 break;
             case FLAMEWHEEL:
-                PlayParticles.playFlameWheel(loc, name);
+                ParticleManager.playFlameWheel(loc, name);
                 break;
             case MARIO:
                 Fountains.startMario(loc, name);
@@ -86,82 +86,82 @@ public class BlockParticles {
                 Fountains.startMobs(loc, name);
                 break;
             case SNOWBLAST:
-                PlayParticles.playSnowBlast(loc, name);
+                ParticleManager.playSnowBlast(loc, name);
                 break;
             case RAINBOW:
-                PlayParticles.playRainbow(loc, name);
+                ParticleManager.playRainbow(loc, name);
                 break;
             case ENDERSIGNAL:
-                PlayParticles.playEnderSignal(loc, name);
+                ParticleManager.playEnderSignal(loc, name);
                 break;
             case MOBSPAWNER:
-                PlayParticles.playMobSpawner(loc, name);
+                ParticleManager.playMobSpawner(loc, name);
                 break;
             case ANGRYVILLAGER:
-                PlayParticles.playAngryVillager(loc, name);
+                ParticleManager.playAngryVillager(loc, name);
                 break;
             case HAPPYVILLAGER:
-                PlayParticles.playHappyVillager(loc, name);
+                ParticleManager.playHappyVillager(loc, name);
                 break;
             case FOOTPRINT:
-                PlayParticles.playFootPrint(loc, name);
+                ParticleManager.playFootPrint(loc, name);
                 break;
             case FIRESPEW:
-                PlayParticles.playFireSpew(loc, name);
+                ParticleManager.playFireSpew(loc, name);
                 break;
             case SPEW:
-                PlayParticles.playSpew(loc, name);
+                ParticleManager.playSpew(loc, name);
                 break;
             case STORM:
-                PlayParticles.playStorm(loc, name);
+                ParticleManager.playStorm(loc, name);
                 break;
             case SNOWSTORM:
-                PlayParticles.playSnowStorm(loc, name);
+                ParticleManager.playSnowStorm(loc, name);
                 break;
             case FIRESTORM:
-                PlayParticles.playFireStorm(loc, name);
+                ParticleManager.playFireStorm(loc, name);
                 break;
             case WITCH:
-                PlayParticles.playWitch(loc, name);
+                ParticleManager.playWitch(loc, name);
                 break;
             case DOUBLEWITCH:
-                PlayParticles.playDoubleWitch(loc, name);
+                ParticleManager.playDoubleWitch(loc, name);
                 break;
             case MAGIC:
-                PlayParticles.playMagic(loc, name);
+                ParticleManager.playMagic(loc, name);
                 break;
             case PRESENTS:
                 Fountains.startPresents(loc, name);
                 break;
             case MUSIC:
-                PlayParticles.playMusic(loc, name);
+                ParticleManager.playMusic(loc, name);
                 break;
             case POTION:
-                PlayParticles.playPotion(loc, name);
+                ParticleManager.playPotion(loc, name);
                 break;
             case SNOW:
-                PlayParticles.playSnow(loc, name);
+                ParticleManager.playSnow(loc, name);
                 break;
             case WATER:
-                PlayParticles.startWater(loc, name);
+                ParticleManager.startWater(loc, name);
                 break;
             case CHAINS:
-                PlayParticles.playChains(loc, name);
+                ParticleManager.playChains(loc, name);
                 break;
             case ENCHANT:
-                PlayParticles.playEnchant(loc, name);
+                ParticleManager.playEnchant(loc, name);
                 break;
             case FOG:
-                PlayParticles.playFog(loc, name);
+                ParticleManager.playFog(loc, name);
                 break;
             case HEADS:
                 Fountains.startHeads(loc, name);
                 break;
             case FLAME:
-                PlayParticles.playFlame(loc, name);
+                ParticleManager.playFlame(loc, name);
                 break;
             case BIGFLAME:
-                PlayParticles.playBigFlame(loc, name);
+                ParticleManager.playBigFlame(loc, name);
                 break;
             case HALLOWEEN:
                 Fountains.startHalloween(loc, name);
@@ -170,19 +170,19 @@ public class BlockParticles {
                 Fountains.startGems(loc, name);
                 break;
             case VOLCANO:
-                PlayParticles.playVolcano(loc, name);
+                ParticleManager.spawnVolcano(loc, name);
                 break;
             case SPIRAL:
-                PlayParticles.playSpiral(loc, name);
+                ParticleManager.playSpiral(loc, name);
                 break;
             case DOUBLESPIRAL:
-                PlayParticles.playDoubleSpiral(loc, name);
+                ParticleManager.playDoubleSpiral(loc, name);
                 break;
             case CRIT:
-                PlayParticles.playCrit(loc, name);
+                ParticleManager.playCrit(loc, name);
                 break;
             case BIGCRIT:
-                PlayParticles.playBigCrit(loc, name);
+                ParticleManager.playBigCrit(loc, name);
                 break;
         }
     }
@@ -193,13 +193,13 @@ public class BlockParticles {
      * @param name The Location Name.
      */
     public void removeParticle(String name) {
-        if (PlayParticles.Blocks.containsKey(name)) {
-            Bukkit.getServer().getScheduler().cancelTask(PlayParticles.Blocks.get(name));
-            PlayParticles.Blocks.remove(name);
+        if (ParticleManager.blocks.containsKey(name)) {
+            Bukkit.getServer().getScheduler().cancelTask(ParticleManager.blocks.get(name));
+            ParticleManager.blocks.remove(name);
         }
-        if (PlayParticles.R.containsKey(name)) {
-            Bukkit.getServer().getScheduler().cancelTask(PlayParticles.R.get(name));
-            PlayParticles.R.remove(name);
+        if (ParticleManager.R.containsKey(name)) {
+            Bukkit.getServer().getScheduler().cancelTask(ParticleManager.R.get(name));
+            ParticleManager.R.remove(name);
         }
     }
 

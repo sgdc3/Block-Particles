@@ -35,7 +35,7 @@ public class Fountains implements Listener {
     }
 
     public static void startHalloween(final Location loc, String L) {
-        PlayParticles.Blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+        ParticleManager.blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             @Override
             public void run() {
                 ItemStack emerald = new ItemStack(Material.ROTTEN_FLESH);
@@ -79,7 +79,7 @@ public class Fountains implements Listener {
     }
 
     public static void startGems(final Location loc, String L) {
-        PlayParticles.Blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+        ParticleManager.blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             @Override
             public void run() {
                 ItemStack emerald = new ItemStack(Material.EMERALD);
@@ -118,7 +118,7 @@ public class Fountains implements Listener {
     }
 
     public static void startHeads(final Location loc, String L) {
-        PlayParticles.Blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+        ParticleManager.blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             @Override
             public void run() {
                 String name = "skeleton";
@@ -147,7 +147,7 @@ public class Fountains implements Listener {
     }
 
     public static void startPresents(final Location loc, String L) {
-        PlayParticles.Blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+        ParticleManager.blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             @Override
             public void run() {
                 List<String> heads = new ArrayList<String>();
@@ -175,7 +175,7 @@ public class Fountains implements Listener {
     }
 
     public static void startMobs(final Location loc, String L) {
-        PlayParticles.Blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+        ParticleManager.blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             @Override
             public void run() {
                 List<String> heads = new ArrayList<String>();
@@ -228,7 +228,7 @@ public class Fountains implements Listener {
     }
 
     public static void startFood(final Location loc, String L) {
-        PlayParticles.Blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+        ParticleManager.blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             @Override
             public void run() {
                 List<String> heads = new ArrayList<String>();
@@ -270,7 +270,7 @@ public class Fountains implements Listener {
     }
 
     public static void startPokemon(final Location loc, String L) {
-        PlayParticles.Blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+        ParticleManager.blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             @Override
             public void run() {
                 List<String> heads = new ArrayList<String>();
@@ -311,7 +311,7 @@ public class Fountains implements Listener {
     }
 
     public static void startMario(final Location loc, String L) {
-        PlayParticles.Blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+        ParticleManager.blocks.put(L, Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             @Override
             public void run() {
                 List<String> heads = new ArrayList<String>();

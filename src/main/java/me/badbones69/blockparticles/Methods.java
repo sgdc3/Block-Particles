@@ -31,40 +31,11 @@ public class Methods implements Listener {
         startParticles();
     }
 
-    private static List<Entity> getNearbyEntities(Location loc, double x, double y, double z) {
-        try {
-            FallingBlock ent = loc.getWorld().spawnFallingBlock(loc.subtract(0, 2, 0), 0, (byte) 0);
-            List<Entity> out = ent.getNearbyEntities(x, y, z);
-            ent.remove();
-            return out;
-        } catch (Exception e) {
-        }
-        return new ArrayList<Entity>();
-    }
-
     public static Integer getVersion() {
         String ver = Bukkit.getServer().getClass().getPackage().getName();
         ver = ver.substring(ver.lastIndexOf('.') + 1);
         ver = ver.replaceAll("_", "").replaceAll("R", "").replaceAll("v", "");
         return Integer.parseInt(ver);
-    }
-
-    static boolean anyPlayers(Location loc, int range) {
-        try {
-            List<Entity> out = getNearbyEntities(loc, range, range, range);
-            if (!out.isEmpty()) {
-                for (Entity e : out) {
-                    if (e instanceof LivingEntity) {
-                        LivingEntity en = (LivingEntity) e;
-                        if (en instanceof Player) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-        }
-        return false;
     }
 
     static ArrayList<String> getLocations() {
@@ -76,8 +47,8 @@ public class Methods implements Listener {
     }
 
     static void kill() {
-        PlayParticles.Blocks.clear();
-        PlayParticles.R.clear();
+        ParticleManager.blocks.clear();
+        ParticleManager.R.clear();
         for (World w : Bukkit.getServer().getWorlds()) {
             for (Entity e : w.getEntities()) {
                 if (e instanceof Item) {
@@ -108,66 +79,66 @@ public class Methods implements Listener {
             int Y = Integer.parseInt(y);
             int Z = Integer.parseInt(z);
             final Location loc = new Location(W, X, Y, Z);
-            if (particle.equalsIgnoreCase("LoveWell")) PlayParticles.playLoveWell(loc, L);
-            if (particle.equalsIgnoreCase("BigLoveWell")) PlayParticles.playBigLoveWell(loc, L);
-            if (particle.equalsIgnoreCase("LoveTornado")) PlayParticles.playLoveTornado(loc, L);
-            if (particle.equalsIgnoreCase("WitchTornado")) PlayParticles.playWitchTornado(loc, L);
-            if (particle.equalsIgnoreCase("FlameWheel")) PlayParticles.playFlameWheel(loc, L);
-            if (particle.equalsIgnoreCase("SoulWell")) PlayParticles.playSoulWell(loc, L);
-            if (particle.equalsIgnoreCase("BigSoulWell")) PlayParticles.playBigSoulWell(loc, L);
-            if (particle.equalsIgnoreCase("SantaHat")) PlayParticles.playSantaHat(loc, L);
+            if (particle.equalsIgnoreCase("LoveWell")) ParticleManager.playLoveWell(loc, L);
+            if (particle.equalsIgnoreCase("BigLoveWell")) ParticleManager.playBigLoveWell(loc, L);
+            if (particle.equalsIgnoreCase("LoveTornado")) ParticleManager.playLoveTornado(loc, L);
+            if (particle.equalsIgnoreCase("WitchTornado")) ParticleManager.playWitchTornado(loc, L);
+            if (particle.equalsIgnoreCase("FlameWheel")) ParticleManager.playFlameWheel(loc, L);
+            if (particle.equalsIgnoreCase("SoulWell")) ParticleManager.playSoulWell(loc, L);
+            if (particle.equalsIgnoreCase("BigSoulWell")) ParticleManager.playBigSoulWell(loc, L);
+            if (particle.equalsIgnoreCase("SantaHat")) ParticleManager.playSantaHat(loc, L);
             if (particle.equalsIgnoreCase("Mario")) Fountains.startMario(loc, L);
             if (particle.equalsIgnoreCase("Pokemon")) Fountains.startPokemon(loc, L);
             if (particle.equalsIgnoreCase("Food")) Fountains.startFood(loc, L);
             if (particle.equalsIgnoreCase("Mobs")) Fountains.startMobs(loc, L);
-            if (particle.equalsIgnoreCase("Halo")) PlayParticles.playHalo(loc, L);
+            if (particle.equalsIgnoreCase("Halo")) ParticleManager.playHalo(loc, L);
             if (particle.equalsIgnoreCase("Snow Blast") || particle.equalsIgnoreCase("SnowBlast"))
-                PlayParticles.playSnowBlast(loc, L);
-            if (particle.equalsIgnoreCase("Rainbow")) PlayParticles.playRainbow(loc, L);
+                ParticleManager.playSnowBlast(loc, L);
+            if (particle.equalsIgnoreCase("Rainbow")) ParticleManager.playRainbow(loc, L);
             if (particle.equalsIgnoreCase("Ender Signal") || particle.equalsIgnoreCase("EnderSignal"))
-                PlayParticles.playEnderSignal(loc, L);
+                ParticleManager.playEnderSignal(loc, L);
             if (particle.equalsIgnoreCase("Mob Spawner") || particle.equalsIgnoreCase("MobSpawner"))
-                PlayParticles.playMobSpawner(loc, L);
+                ParticleManager.playMobSpawner(loc, L);
             if (particle.equalsIgnoreCase("Angry Villager") || particle.equalsIgnoreCase("AngryVillager"))
-                PlayParticles.playAngryVillager(loc, L);
+                ParticleManager.playAngryVillager(loc, L);
             if (particle.equalsIgnoreCase("Happy Villager") || particle.equalsIgnoreCase("HappyVillager"))
-                PlayParticles.playHappyVillager(loc, L);
+                ParticleManager.playHappyVillager(loc, L);
             if (particle.equalsIgnoreCase("Foot Print") || particle.equalsIgnoreCase("FootPrint"))
-                PlayParticles.playFootPrint(loc, L);
+                ParticleManager.playFootPrint(loc, L);
             if (particle.equalsIgnoreCase("Fire Spew") || particle.equalsIgnoreCase("FireSpew"))
-                PlayParticles.playFireSpew(loc, L);
+                ParticleManager.playFireSpew(loc, L);
             if (particle.equalsIgnoreCase("Snow Storm") || particle.equalsIgnoreCase("SnowStorm"))
-                PlayParticles.playSnowStorm(loc, L);
+                ParticleManager.playSnowStorm(loc, L);
             if (particle.equalsIgnoreCase("Double Witch") || particle.equalsIgnoreCase("DoubleWitch"))
-                PlayParticles.playDoubleWitch(loc, L);
-            if (particle.equalsIgnoreCase("Witch")) PlayParticles.playWitch(loc, L);
-            if (particle.equalsIgnoreCase("Magic")) PlayParticles.playMagic(loc, L);
+                ParticleManager.playDoubleWitch(loc, L);
+            if (particle.equalsIgnoreCase("Witch")) ParticleManager.playWitch(loc, L);
+            if (particle.equalsIgnoreCase("Magic")) ParticleManager.playMagic(loc, L);
             if (particle.equalsIgnoreCase("Presents")) Fountains.startPresents(loc, L);
-            if (particle.equalsIgnoreCase("Spew")) PlayParticles.playSpew(loc, L);
-            if (particle.equalsIgnoreCase("Music")) PlayParticles.playMusic(loc, L);
-            if (particle.equalsIgnoreCase("Potion")) PlayParticles.playPotion(loc, L);
-            if (particle.equalsIgnoreCase("Snow")) PlayParticles.playSnow(loc, L);
+            if (particle.equalsIgnoreCase("Spew")) ParticleManager.playSpew(loc, L);
+            if (particle.equalsIgnoreCase("Music")) ParticleManager.playMusic(loc, L);
+            if (particle.equalsIgnoreCase("Potion")) ParticleManager.playPotion(loc, L);
+            if (particle.equalsIgnoreCase("Snow")) ParticleManager.playSnow(loc, L);
             if (particle.equalsIgnoreCase("Fire Storm") || particle.equalsIgnoreCase("FireStorm"))
-                PlayParticles.playFireStorm(loc, L);
-            if (particle.equalsIgnoreCase("Water")) PlayParticles.startWater(loc, L);
-            if (particle.equalsIgnoreCase("Chains")) PlayParticles.playChains(loc, L);
-            if (particle.equalsIgnoreCase("Enchant")) PlayParticles.playEnchant(loc, L);
-            if (particle.equalsIgnoreCase("Fog")) PlayParticles.playFog(loc, L);
-            if (particle.equalsIgnoreCase("Storm")) PlayParticles.playStorm(loc, L);
+                ParticleManager.playFireStorm(loc, L);
+            if (particle.equalsIgnoreCase("Water")) ParticleManager.startWater(loc, L);
+            if (particle.equalsIgnoreCase("Chains")) ParticleManager.playChains(loc, L);
+            if (particle.equalsIgnoreCase("Enchant")) ParticleManager.playEnchant(loc, L);
+            if (particle.equalsIgnoreCase("Fog")) ParticleManager.playFog(loc, L);
+            if (particle.equalsIgnoreCase("Storm")) ParticleManager.playStorm(loc, L);
             if (particle.equalsIgnoreCase("Heads")) Fountains.startHeads(loc, L);
             if (particle.equalsIgnoreCase("Big Flame") || particle.equalsIgnoreCase("BigFlame"))
-                PlayParticles.playBigFlame(loc, L);
-            if (particle.equalsIgnoreCase("Flame")) PlayParticles.playFlame(loc, L);
+                ParticleManager.playBigFlame(loc, L);
+            if (particle.equalsIgnoreCase("Flame")) ParticleManager.playFlame(loc, L);
             if (particle.equalsIgnoreCase("Halloween")) Fountains.startHalloween(loc, L);
             if (particle.equalsIgnoreCase("Gems")) Fountains.startGems(loc, L);
             if (particle.equalsIgnoreCase("Valcano") || particle.equalsIgnoreCase("Volcano"))
-                PlayParticles.playVolcano(loc, L);
-            if (particle.equalsIgnoreCase("Spiral")) PlayParticles.playSpiral(loc, L);
+                ParticleManager.spawnVolcano(loc, L);
+            if (particle.equalsIgnoreCase("Spiral")) ParticleManager.playSpiral(loc, L);
             if (particle.equalsIgnoreCase("Double Spiral") || particle.equalsIgnoreCase("DoubleSpiral"))
-                PlayParticles.playDoubleSpiral(loc, L);
-            if (particle.equalsIgnoreCase("Crit")) PlayParticles.playCrit(loc, L);
+                ParticleManager.playDoubleSpiral(loc, L);
+            if (particle.equalsIgnoreCase("Crit")) ParticleManager.playCrit(loc, L);
             if (particle.equalsIgnoreCase("Big Crit") || particle.equalsIgnoreCase("BigCrit"))
-                PlayParticles.playBigCrit(loc, L);
+                ParticleManager.playBigCrit(loc, L);
         }
     }
 
@@ -214,8 +185,8 @@ public class Methods implements Listener {
             if (loc.equalsIgnoreCase(name)) {
                 Main.settings.getData().set("Locations." + loc, null);
                 Main.settings.saveData();
-                Bukkit.getScheduler().cancelTask(PlayParticles.Blocks.get(loc));
-                if (PlayParticles.R.containsKey(loc)) Bukkit.getScheduler().cancelTask(PlayParticles.R.get(loc));
+                Bukkit.getScheduler().cancelTask(ParticleManager.blocks.get(loc));
+                if (ParticleManager.R.containsKey(loc)) Bukkit.getScheduler().cancelTask(ParticleManager.R.get(loc));
                 player.sendMessage(color(Prefix + "&3You have just deleted &6" + name + "&3."));
                 return;
             }
@@ -264,12 +235,6 @@ public class Methods implements Listener {
         player.sendMessage(msg);
         player.sendMessage(Methods.color("&3Number of Locations: &6" + line));
         return;
-    }
-
-    static int randomColor() {
-        Random r = new Random();
-        int i = r.nextInt(255);
-        return i;
     }
 
     public static ItemStack makeItem(Material material, int amount, int type, String name) {
